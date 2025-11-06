@@ -2,7 +2,6 @@ const mod =251;
 
 function modInverse(a, m) {
     a = ((a % m) + m) % m;
-    //if (a === 0) return a;
     for (let x = 1; x < m; x++) {
         if ((a * x) % m === 1) {
             return x;
@@ -29,7 +28,6 @@ export function encodeWithSSS(number){
         Codes.push(i,createF(number,i));
     }
 
-    //console.log("Codes: ", Codes);
     return Codes;
 }
 
@@ -50,12 +48,8 @@ export function decodeWithSSS(Codes){
 
     const sum=[];
     for(let i=0;i<Codes[0][1].length;i++){
-        //sum.push((l0[0] * Codes[0][1] + l1[0] * Codes[2][1] + l2[0] * Codes[4][1]) % mod);
-        //sum.push((l0[1] * Codes[0][1] + l1[1] * Codes[2][1] + l2[1] * Codes[4][1]) % mod);
         sum.push((l0[2] * Codes[0][1][i] + l1[2] * Codes[1][1][i] + l2[2] * Codes[2][1][i]) % mod);
     }
-    //const normalized = sum.map(c => ((c % mod) + mod) % mod);
-    //console.log("normalized: ", normalized);
 
     return sum;
 }
