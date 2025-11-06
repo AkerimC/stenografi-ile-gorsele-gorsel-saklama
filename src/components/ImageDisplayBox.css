@@ -1,0 +1,45 @@
+.image-display-box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.displayed-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Resmin tamamının görünmesini sağla */
+}
+
+.display-placeholder {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  padding: 5px;
+}
+
+.image-render-item .image-display-box {
+    width: calc(100% - 80px); /* İndirme butonu için yer bırak */
+    height: auto; /* Yüksekliği otomatik ayarla veya sabit bir değer ver */
+    min-height: 70px; /* Minimum yükseklik */
+}
+
+/* Decode formundaki büyük resim alanı için özel stil */
+.decode-form .section-output .image-display-box {
+    width: 250px;
+    height: 250px;
+    border: 2px solid #5cb85c;
+}
+
+.decode-form .section-output .displayed-image {
+    object-fit: contain; /* Veya 'cover' tercih edilebilir */
+}
+
+.decode-form .section-output .display-placeholder {
+    font-size: 16px;
+}

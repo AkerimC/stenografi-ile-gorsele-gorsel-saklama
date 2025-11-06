@@ -1,0 +1,76 @@
+.decode-form {
+  display: flex;
+  flex-direction: row; /* Soldan sağa sıralama */
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.decode-section {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.decode-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* 1. Parça - Inputlar */
+.section-inputs {
+  flex-basis: 60%; /* Daha geniş */
+}
+
+.decode-input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Esnek grid */
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.decode-action-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.decode-action-button:hover {
+  background-color: #0056b3;
+}
+
+/* 2. Parça - Çıktı */
+.section-output {
+  flex-basis: 35%; /* Daha dar */
+  justify-content: center; /* İçeriği dikeyde ortala */
+}
+
+.decoded-image-display .displayed-image {
+  max-width: 100%; /* Resmin kutuya sığmasını sağla */
+  max-height: 300px; /* Maksimum yükseklik (isteğe bağlı) */
+  border: 1px solid #ddd;
+}
+
+.decoded-image-display .display-placeholder {
+    width: 250px; /* Placeholder boyutu */
+    height: 250px; /* Placeholder boyutu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    color: #888;
+}

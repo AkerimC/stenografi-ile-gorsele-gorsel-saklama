@@ -1,0 +1,82 @@
+.psnr-form {
+    flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.psnr-section {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.psnr-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.section-inputs {
+  flex-basis: 60%;
+}
+
+.psnr-input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.psnr-action-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.psnr-action-button:hover {
+  background-color: #218838;
+}
+
+.section-output {
+  flex-basis: 35%;
+  justify-content: center;
+}
+
+.psnr-result-display {
+  font-size: 20px;
+  color: #222;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+
+.psnr-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.upload-boxes-container {
+  display: flex;
+  flex-direction: column; /* Yükleme kutucukları alt alta */
+  align-items: center; /* Yükleme kutucuklarını ortala */
+  gap: 15px; /* Yükleme kutucukları arası boşluk */
+  width: 100%;
+}

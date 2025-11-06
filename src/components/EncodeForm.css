@@ -1,0 +1,81 @@
+.encode-form {
+  display: flex;
+  flex-direction: row-reverse; /* Sağdan sola sıralama */
+  justify-content: space-between;
+  gap: 20px; /* Parçalar arası boşluk */
+}
+
+.encode-section {
+  flex-basis: 32%; /* Her parçanın genişliği (yaklaşık 1/3) */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column; /* İçerik yukarıdan aşağıya */
+  align-items: center; /* İçeriği ortala (yatayda) */
+}
+
+.encode-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* 1. Parça (Sağ) - Resim Yükleme */
+.section-upload .upload-boxes-container {
+  display: flex;
+  flex-direction: column; /* Yükleme kutucukları alt alta */
+  align-items: center; /* Yükleme kutucuklarını ortala */
+  gap: 15px; /* Yükleme kutucukları arası boşluk */
+  width: 100%;
+}
+
+/* 2. Parça (Orta) - Sadece Render */
+.section-render-only {
+  gap: 10px; /* Resim kutucukları arası boşluk */
+}
+
+/* 3. Parça (Sol) - Render ve İndirme */
+.section-render-download {
+  gap: 10px; /* Resim kutucukları arası boşluk */
+}
+
+.image-render-item {
+  display: flex;
+  align-items: center; /* Resim ve butonu dikeyde ortala */
+  width: 100%;
+  padding: 5px 0;
+  gap: 10px; /* Resim ve buton arası boşluk */
+  justify-content: space-between; /* Butonu sağa yasla */
+}
+
+.image-render-item .image-display-box {
+ flex-grow: 1; /* Resim kutusu kalan alanı alsın */
+ max-width: calc(100% - 80px); /* Buton için yer bırak */
+}
+
+
+.download-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  min-width: 70px; /* Buton genişliği */
+}
+
+.download-button:hover {
+  background-color: #45a049;
+}
+
+.download-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

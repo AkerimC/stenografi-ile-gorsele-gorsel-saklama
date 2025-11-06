@@ -1,0 +1,41 @@
+.image-upload-box {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #f0f8ff;
+  overflow: hidden; /* Taşan resimleri gizle */
+  position: relative;
+}
+
+.image-upload-box:hover {
+  border-color: #0056b3;
+  background-color: #e6f2ff;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Resmin kutuyu doldurmasını sağla */
+}
+
+.upload-placeholder {
+  text-align: center;
+  color: #007bff;
+}
+
+.upload-placeholder span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.upload-placeholder small {
+  font-size: 12px;
+  color: #555;
+}
