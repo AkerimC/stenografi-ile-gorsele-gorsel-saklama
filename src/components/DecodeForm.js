@@ -72,10 +72,9 @@ const DecodeForm = ({hidingBitNumber}) => {
       let currentShift = 8; // 8 bitten geriye doğru saymaya başla
 
       for (let c = 0; c < grub; c++) {
-        let bitsToPack; // Bu döngüde kaç bit paketlenecek?
+        let bitsToPack; 
 
         if (c === grub - 1 && residual !== 0) {
-          // Bu son grup ve kalan (residual) var
           bitsToPack = residual;
         } else {
           // Bu normal bir grup
@@ -96,7 +95,7 @@ const DecodeForm = ({hidingBitNumber}) => {
 
 
       pixelArr.current.push(newImage);
-      //console.log('raw',Array.from(rawPixels,byte =>byte.toString(2).padStart(8,'0')));
+      
 
       const rgba = new Uint8Array((width/2) * (height/2) * 4);
       //console.log('hexwi', height/2,width/2);
@@ -104,12 +103,6 @@ const DecodeForm = ({hidingBitNumber}) => {
       for (let i = 0; i < pixelArr.current[0][1].length ; i++) {
         rgba[i] = pixelArr.current[0][1][i];
       }
-      /*console.log('rgba: ',Array.from(rgba,byte=>byte.toString(2).padStart(8,'0')));
-      //gömülmemiş hali gömülmüşle aynı
-      const pngData = UPNG.encode([rgba.buffer], width/2, height/2, 0);
-      const blob = new Blob([pngData], { type: "image/png" });
-      const url = URL.createObjectURL(blob);
-      setDecodedImage(url);*/
 
     }
     reader.onerror = (error) => {
@@ -119,12 +112,9 @@ const DecodeForm = ({hidingBitNumber}) => {
   }
 
 
-  // Gerçek decode işlemi burada tetiklenmeli
   const handleDecode = () => {
     // Örnek: Eğer tüm inputlar varsa decode edilmiş resmi göster
     if (inputImage1 && inputImage2 && inputImage3) {
-      // Bu kısım gerçek decode mantığını içermelidir.
-      // Şimdilik ilk resmi sonuç olarak gösterelim.
       setDecodedImage(inputImage1);
       const width=orgWidth;
       const height=orgHeight;
@@ -137,14 +127,10 @@ const DecodeForm = ({hidingBitNumber}) => {
         rgba[i + 2] = finalImage[i+2]; // B
         rgba[i + 3] = finalImage[i+3];             // A (tam opak)
       }
-      //console.log('rgba: ',Array.from(rgba,byte=>byte.toString(2).padStart(8,'0')));
-      //gömülmemiş hali gömülmüşle aynı
       const pngData = UPNG.encode([rgba.buffer], width/2, height/2, 0);
       const blob = new Blob([pngData], { type: "image/png" });
       const url = URL.createObjectURL(blob);
       setDecodedImage(url);
-
-      //alert('Decode işlemi (simülasyon) tamamlandı!');
     } else {
       alert('Lütfen decode için 3 resmi de yükleyin.');
     }
