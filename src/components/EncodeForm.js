@@ -9,7 +9,7 @@ const EncodeForm = ({ hidingBitNumber, setHidingBitNumber }) => {
   const sampleImage1 = 'https://via.placeholder.com/150/0000FF/FFFFFF?Text=ÖrnekResim1';
   const sampleImage2 = 'https://via.placeholder.com/150/FF0000/FFFFFF?Text=ÖrnekResim2';
 
-  // İndirme fonksiyonu (örnek)
+  // İndirme fonksiyonu
   const handleDownload = (imageSrc, imageName = 'encoded-image.png') => {
     if (!imageSrc) {
       alert('İndirilecek resim bulunamadı!');
@@ -23,11 +23,9 @@ const EncodeForm = ({ hidingBitNumber, setHidingBitNumber }) => {
     document.body.removeChild(link);
   };
 
-  // Bu state'ler daha sonra yüklenen/işlenen resimlerin URL'lerini tutacak
-  // Şimdilik placeholder veya null kullanıyoruz
+ 
   const [uploadedImage1, setUploadedImage1] = React.useState(null);
   const [uploadedImage2, setUploadedImage2] = React.useState(null);
-  //const [hidingBitNumber, setHidingBitNumber] = React.useState(2); // Varsayılan olarak 2 bit
 
   const [renderedImagesPart2, setRenderedImagesPart2] = React.useState(Array(6).fill(null));
   const [renderedImagesPart3, setRenderedImagesPart3] = React.useState(Array(6).fill(null));
@@ -81,9 +79,6 @@ const EncodeForm = ({ hidingBitNumber, setHidingBitNumber }) => {
       byte.toString(2).padStart(8, '0')
     );
     const BitGroups = splitBits(encodedBinaryPixels, hidingBitNumber);
-    /*const BitGroups = encodedBinaryPixels.flatMap(byte => 
-      [byte.substr(0, 2), byte.substr(2, 2), byte.substr(4, 2), byte.substr(6, 2)]
-    );*/
     let groupIndex = 0;
     for (let i = 0; i < newPixels.length; i += 4) {
       for (let c = 0; c < 4; c++) {
@@ -146,11 +141,9 @@ const EncodeForm = ({ hidingBitNumber, setHidingBitNumber }) => {
       rgba[i+2] = encodedPixelsArr.current[k][i+2];
       rgba[i+3] = 255;
     }
-    //console.log('not alha',rgba);
     const pngData = UPNG.encode([rgba.buffer], width, height, 0);
     const url = URL.createObjectURL(new Blob([pngData], { type: "image/png" }));
     rendered2.push(url);
-    // İsterseniz farklı işleyebilirsiniz
   }
   setRenderedImagesPart2(rendered2);
 }
@@ -176,7 +169,6 @@ const EncodeForm = ({ hidingBitNumber, setHidingBitNumber }) => {
       const width =png.width;
       const height =png.height;
       const rawPixels = new Uint8Array(UPNG.toRGBA8(png)[0]);
-      //console.log('hide:',rawPixels);
 
       // Çözünürlüğü 2x artır (4 kat piksel)
       const newPixels = increaseResolution(rawPixels, width, height);
